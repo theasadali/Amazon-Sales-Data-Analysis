@@ -41,5 +41,9 @@ FROM sales_data
 GROUP BY Product_Category, Region
 ORDER BY Region;
 
+--understanding the type of customers new/returning
+SELECT Customer_Type, COUNT(*) FROM sales_data
+GROUP BY Customer_Type;
+
 --analysing what payment method most customers prefer
 SELECT Payment_Method, COUNT(*) FROM sales_data GROUP BY Payment_Method;
