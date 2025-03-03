@@ -22,5 +22,24 @@ FROM sales_data
 GROUP BY Product_Category
 ORDER BY 'Total Profit' DESC;
 
+--checking the number of sales between specifice dates
+SELECT COUNT(*) FROM sales_data
+WHERE Sale_Date BETWEEN '2023-02-03' AND '2023-04-11';
+
+--checking the sum of sales between specifice dates
+SELECT SUM(Sales_Amount) AS 'Total Sales' FROM sales_data
+WHERE Sale_Date BETWEEN '2023-02-03' AND '2024-03-04';
+
+--checking total quantiy sold w.r.t category in all regions
+SELECT Product_Category, SUM(Quantity_Sold) as 'Total Quantity Sold'
+FROM sales_data
+GROUP BY Product_Category;
+
+--checking total quantiy sold w.r.t category in specific regions
+SELECT Product_Category, Region, SUM(Quantity_Sold) as 'Total Quantity Sold'
+FROM sales_data
+GROUP BY Product_Category, Region
+ORDER BY Region;
+
 --analysing what payment method most customers prefer
 SELECT Payment_Method, COUNT(*) FROM sales_data GROUP BY Payment_Method;
