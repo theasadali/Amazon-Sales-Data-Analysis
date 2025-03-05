@@ -37,6 +37,12 @@ FROM sales_data
 GROUP BY Product_Category
 ORDER BY 'Sold Product' DESC
 
+--Determine the highest revenue-generating product category
+SELECT * FROM sales_data
+SELECT Product_Category, ROUND(SUM(Sales_Amount),2) as 'Total Revenue'
+FROM sales_data
+GROUP BY Product_Category
+ORDER BY 'Total Revenue' DESC
 
 
 
