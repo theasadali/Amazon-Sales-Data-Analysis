@@ -38,11 +38,21 @@ GROUP BY Product_Category
 ORDER BY 'Sold Product' DESC
 
 --Determine the highest revenue-generating product category
-SELECT * FROM sales_data
-SELECT Product_Category, ROUND(SUM(Sales_Amount),2) as 'Total Revenue'
+SELECT Product_Category, ROUND(SUM(Sales_Amount),2) AS 'Total Revenue'
 FROM sales_data
 GROUP BY Product_Category
 ORDER BY 'Total Revenue' DESC
+
+--Calculate the profit margin (Unit Price - Unit Cost) for each product.
+SELECT Product_ID, ROUND((Unit_Price - Unit_Cost),2) 
+AS 'Profit Margin' 
+FROM sales_data
+ORDER BY 'Profit Margin' DESC;
+
+
+
+
+
 
 
 
