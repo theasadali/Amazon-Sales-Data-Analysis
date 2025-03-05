@@ -49,6 +49,23 @@ AS 'Profit Margin'
 FROM sales_data
 ORDER BY 'Profit Margin' DESC;
 
+--count the number of transactions for new vs. returning customers
+SELECT Customer_Type, COUNT(*) AS 'Total Transactions'
+FROM sales_data
+GROUP BY Customer_Type
+
+--Identify the average discount percentage applied across all sales
+SELECT AVG(Discount) as 'Average Discount' 
+FROM sales_data
+
+--analysing what payment method most customers prefer
+SELECT Payment_Method, COUNT(*) AS 'No. of Transactions'
+FROM sales_data 
+GROUP BY Payment_Method DESC;
+
+
+
+
 
 
 
@@ -116,5 +133,3 @@ ORDER BY Region;
 SELECT Customer_Type, COUNT(*) FROM sales_data
 GROUP BY Customer_Type;
 
---analysing what payment method most customers prefer
-SELECT Payment_Method, COUNT(*) FROM sales_data GROUP BY Payment_Method;
