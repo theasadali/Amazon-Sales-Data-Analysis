@@ -65,10 +65,11 @@ GROUP BY Payment_Method
 ORDER BY [No. of Transactions] DESC;
 
 --finding the month with the highest total sales amount
-SELECT MONTH(Sale_Date) AS 'Month', ROUND(SUM(Sales_Amount),2) AS 'Total Sales'
+SELECT TOP 1 FORMAT(Sale_Date, 'MMMM') AS [Month with higest total sales], 
+ROUND(SUM(Sales_Amount),2) AS [Total Sales]
 FROM sales_data
-GROUP BY Sale_Date
-ORDER BY 'Total Sales' DESC;
+GROUP BY FORMAT(Sale_Date, 'MMMM')
+ORDER BY [Total Sales] DESC
 
 
 
