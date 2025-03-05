@@ -1,5 +1,51 @@
 USE SalesDataAnalysis;
 
+--retrieving total number of sales transactions
+SELECT COUNT(*) AS 'TOTAL SALES TRANSACTION' FROM sales_data;
+
+--identifying unique product categories and counting
+SELECT DISTINCT Product_Category AS 'Product Categories'
+FROM sales_data;
+
+SELECT COUNT(DISTINCT Product_Category) AS 'Number of Categories'
+FROM sales_data
+
+--listing distinct sales representative and their assigned regions
+SELECT DISTINCT Sales_Rep, Region 
+FROM sales_data
+GROUP BY Sales_Rep, Region
+ORDER BY Sales_Rep;
+
+--calculating total sales per region
+SELECT Region, ROUND(SUM(Sales_Amount),2) AS 'Total Sales'
+FROM sales_data
+GROUP BY REGION
+ORDER BY 'Total Sales';
+
+--determine top 5 sales representatives based on total sales.
+SELECT TOP 5 Sales_Rep, COUNT(*) AS 'Total Sales' FROM sales_data
+GROUP BY Sales_Rep
+ORDER BY 'Total Sales' DESC
+
+--computing average sales amount per transaction
+SELECT ROUND(AVG(Sales_Amount),2) AS 'Avg Sales Amount' 
+FROM sales_data;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--EXTRAS
 --fetching everything from sales_data table to analyze columns
 SELECT * FROM sales_data;
 
