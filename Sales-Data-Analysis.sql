@@ -31,6 +31,15 @@ ORDER BY 'Total Sales' DESC
 SELECT ROUND(AVG(Sales_Amount),2) AS 'Avg Sales Amount' 
 FROM sales_data;
 
+--finding the best-selling product category in terms of quantity sold. 
+SELECT Product_Category, SUM(Quantity_Sold) AS 'Sold Product'
+FROM sales_data
+GROUP BY Product_Category
+ORDER BY 'Sold Product' DESC
+
+
+
+
 
 
 
