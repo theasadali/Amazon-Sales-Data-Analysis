@@ -61,7 +61,15 @@ FROM sales_data
 --analysing what payment method most customers prefer
 SELECT Payment_Method, COUNT(*) AS 'No. of Transactions'
 FROM sales_data 
-GROUP BY Payment_Method DESC;
+GROUP BY Payment_Method
+ORDER BY [No. of Transactions] DESC;
+
+--finding the month with the highest total sales amount
+SELECT MONTH(Sale_Date) AS 'Month', ROUND(SUM(Sales_Amount),2) AS 'Total Sales'
+FROM sales_data
+GROUP BY Sale_Date
+ORDER BY 'Total Sales' DESC;
+
 
 
 
